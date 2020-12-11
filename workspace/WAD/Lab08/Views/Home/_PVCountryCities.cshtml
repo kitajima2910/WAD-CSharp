@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Lab08.Models.CountryCity>
+    <table class="table">
+        <tr>
+            <th>CountryCode</th>
+            <th>CountryName</th>
+            <th>CityName</th>
+            <th>CityPopulation</th>
+            @*<th></th>*@
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.Country.idCode</td>
+        <td>@item.Country.countryName</td>
+        <td>@item.City.cityName</td>
+        <td>@item.City.cityPopulation</td>
+        @*<td></td>*@
+    </tr>
+        }
+    </table>    

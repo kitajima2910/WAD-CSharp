@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lab02.Models.Course>
+@{
+    ViewBag.Title = "Index";
+}
+<hr />
+<h4>
+    @Html.ActionLink("Create new", "Create", "Home")
+</h4>
+@using (Html.BeginForm())
+{
+    @*<input type="text" name="search" placeholder="Enter any charactor..." />*@
+
+    @Html.TextBox("search")
+    <input type="text" name="fromValue" placeholder="Enter fee min..." />
+    <input type="text" name="toValue" placeholder="Enter fee max..." />
+    <input type="submit" value="Filter" class="btn btn-primary" />
+}
+<br />
+<h2>Course List</h2>
+<table class="table">
+    <tr>
+        <td>Course ID</td>
+        <td>Course Name</td>
+        <td>Duration</td>
+        <td>Course Fee</td>
+        <td>Action</td>
+    </tr>
+    @using (Html.BeginForm("Delete", "Home", FormMethod.Get))
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CourseName</td>
+                <td>@item.Duration</td>
+                <td>@item.Fee</td>
+                <td>
+                    @Html.ActionLink("Update", "Update", new { id = item.Id }) ||
+                    <input type="checkbox" value="@item.Id" name="cbDelete" />
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="5" class="text-right">
+                <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure?')" />
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Lab07.Models.Computer>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<a asp-controller="Computers" asp-action="Create">Create new</a>
+
+<table class="table">
+    <tr>
+        <th>ComputerName</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ComputerName</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>
+                <img src="@item.Photo" width="75" />
+            </td>
+            <td>
+                <a asp-controller="Computers" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                @*@Html.ActionLink("Edit", "Edit", "Computers", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+</table>
+

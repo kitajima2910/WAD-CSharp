@@ -1,0 +1,23 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in ViewBag.Customers) {
+        <tr>
+            <td>@item.customerid</td>
+            <td>@item.customername</td>
+            <td>@item.customeraddress</td>
+            <td>@item.customerphone</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.customerid">EditOrDelete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

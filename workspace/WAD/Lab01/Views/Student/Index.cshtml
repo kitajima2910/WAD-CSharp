@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Lab01.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+<hr />
+<h4>
+    @Html.ActionLink("Create new", "Create", "Student")
+</h4>
+@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("keyword", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+<h2>Student List</h2>
+<table class="table">
+    <tr>
+        <th>Student Id</th>
+        <th>Student Name</th>
+        <th>Address</th>
+        @*<th>Join Date</th>*@
+        <th>
+            @Html.ActionLink("Join Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>Functions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.StudentId</td>
+            <td>@item.StudentName</td>
+            <td>@item.Address</td>
+            <td>@item.JoinDate.ToString("dd/MM/yyyy")</td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.StudentId }) || 
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { onClick="return confirm(\"Are you sure?\")" })
+            </td>
+        </tr>
+    }
+</table>
+

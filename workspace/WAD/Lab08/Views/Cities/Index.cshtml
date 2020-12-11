@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Lab08.Models.City>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h3>
+    <a asp-controller="Cities" asp-action="Create">Create city</a>
+</h3>
+
+<table class="table">
+    <tr>
+        <th>City Name</th>
+        <th>City Population</th>
+        <th>City Area</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.cityName</td>
+            <td>@item.cityPopulation</td>
+            <td>@item.cityArea</td>
+        </tr>
+    }
+</table>

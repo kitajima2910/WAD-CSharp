@@ -1,0 +1,43 @@
+﻿@*@model IEnumerable<Lab10.Models.Patient>*@
+@{
+    ViewData["Title"] = "Index";
+    var pageList = (IPagedList)ViewBag.Data;
+}
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+
+<h1>He thong quan ly benh nhan</h1>
+<br />
+<a asp-controller="Patient" asp-action="Create">Them moi benh an</a>
+<br />
+<form asp-controller="Patient" asp-action="Index">
+    <label>Nhap benh ly:</label>
+    <input type="text" name="keyword" />
+    <input type="submit" value="Tim kiem" class="btn btn-success" />
+</form>
+<br />
+@Html.PagedListPager(pageList, page => Url.Action("Index", new { page }))
+<table class="table">
+    <tr>
+        <th>patientname</th>
+        <th>age</th>
+        <th>address</th>
+        <th>joindate</th>
+        <th>pathological</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in ViewBag.Data)
+    {
+        <tr>
+            <td>@item.patientname</td>
+            <td>@item.age</td>
+            <td>@item.address</td>
+            <td>@item.joindate</td>
+            <td>@item.pathological</td>
+            <td>
+                <a asp-controller="Patient" asp-action="UpdateOrDelete" asp-route-id="@item.id">Xoa hoac sua</a>
+            </td>
+        </tr>
+    }
+</table>

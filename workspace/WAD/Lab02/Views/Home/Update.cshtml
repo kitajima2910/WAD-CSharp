@@ -1,0 +1,40 @@
+﻿@model Lab02.Models.Course
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Course</h2>
+
+@using (Html.BeginForm("Update", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.HiddenFor(model => model.Id)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.CourseName)
+            @Html.EditorFor(model => model.CourseName)
+            @Html.ValidationMessageFor(model => model.CourseName)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Duration)
+            @Html.EditorFor(model => model.Duration)
+            @Html.ValidationMessageFor(model => model.Duration)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Fee)
+            @Html.EditorFor(model => model.Fee)
+            @Html.ValidationMessageFor(model => model.Fee)
+        </div>
+        <br /><br />
+        <div>
+            <input type="submit" value="Create" class="btn btn-warning" />
+        </div>
+    </div>
+}
+<div>
+    <h3 style="color:red">@ViewBag.Msg</h3>
+</div>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Home" asp-action="Index" method="get">
+    <div class="form-group col-sm-12 d-flex">
+        <select name="keyword" asp-items="(IEnumerable<SelectListItem>)ViewBag.Countries" class="form-control col-sm-4">
+            <option value="">Please choose</option>
+        </select>
+        <button type="submit" class="btn btn-outline-primary ml-2">Search</button>
+    </div>
+</form>
+
+<partial name="_PVCountryCities" />

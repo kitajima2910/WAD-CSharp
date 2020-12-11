@@ -1,0 +1,38 @@
+﻿@model Lab10.Models.Patient
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Tao moi benh an</h1>
+<form asp-controller="Patient" asp-action="Create" method="post">
+    <div class="form-group col-sm-12">
+        <label>Ten benh nhan:</label>
+        <input asp-for="patientname" class="form-control col-sm-6" />
+        <span asp-validation-for="patientname" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Tuoi ben nhan:</label>
+        <input asp-for="age" class="form-control col-sm-6" />
+        <span asp-validation-for="age" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Dia chi:</label>
+        <input asp-for="address" class="form-control col-sm-6" />
+        <span asp-validation-for="address" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Ngay nhap vien:</label>
+        <input asp-for="joindate" class="form-control col-sm-6" />
+        <span asp-validation-for="joindate" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Benh ly:</label>
+        <input asp-for="pathological" class="form-control col-sm-6" />
+        <span asp-validation-for="pathological" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <button type="submit" class="btn btn-outline-primary">Them</button>
+    </div>
+</form>
+<br />
+&nbsp;&nbsp;&nbsp;<label class="text-danger">@ViewBag.Msg</label>

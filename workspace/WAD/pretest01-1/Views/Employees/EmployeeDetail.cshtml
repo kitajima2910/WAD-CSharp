@@ -1,0 +1,55 @@
+﻿@model pretest01_1.Models.Employee
+@{
+    ViewData["Title"] = "EmployeeDetail";
+}
+
+<h1>Thong tin chi tiet</h1>
+<hr />
+
+<div>
+    <div>
+        <lable style="text-indent: 16px;">Ma nhan vien:</lable>
+        <p style="text-indent: 35px;">@Html.DisplayFor(model => model.EmpID)</p>
+    </div>
+    <div>
+        <lable style="text-indent: 16px;">Tuoi:</lable>
+        <p style="text-indent: 35px;">@Html.DisplayFor(model => model.EmpAge)</p>
+    </div>
+    <div>
+        <lable style="text-indent: 16px;">Ho ten:</lable>
+        <p style="text-indent: 35px;">@Html.DisplayFor(model => model.EmpName)</p>
+    </div>
+    <div>
+        <lable style="text-indent: 16px;">Dia chi:</lable>
+        <p style="text-indent: 35px;">@Html.DisplayFor(model => model.EmpAddress)</p>
+    </div>
+    <div>
+        <lable style="text-indent: 16px;">Email:</lable>
+        <p style="text-indent: 35px;">@Html.DisplayFor(model => model.EmpEmail)</p>
+    </div>
+</div>
+
+@*<table>
+    <tr>
+        <th>Ma nhan vien:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpID)</td>
+    </tr>
+    <tr>
+        <th>Tuoi:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpAge)</td>
+    </tr>
+    <tr>
+        <th>Ho ten:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpName)</td>
+    </tr>
+    <tr>
+        <th>Dia chi:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpAddress)</td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpEmail)</td>
+    </tr>
+</table>*@
+<br />
+<a asp-controller="Employees" asp-action="ViewEmployeeList">Xem danh sach nhan vien</a>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Lab09.Models.CustomerOrder>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.orderdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customeraddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subtotal)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customeraddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.price)*@
+                @item.price.ToString("#,###")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerid)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.subtotal)*@
+                @item.subtotal.ToString("#,###")
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

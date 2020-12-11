@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Lab03.Models.Account>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Account List(Online: @ViewBag.InfoAccount)</h1>
+<table class="table">
+    <tr>
+        <th>Account No</th>
+        <th>Account Name</th>
+        <th>Account Address</th>
+        <th>Account Balance</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in ViewBag.Data)
+    {
+        <tr>
+            <td>@item.AccountNo</td>
+            <td>@item.AccountName</td>
+            <td>@item.Address</td>
+            <td>@item.Balance</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { accountNo = item.AccountNo })
+            </td>
+        </tr>
+    }
+</table>
+

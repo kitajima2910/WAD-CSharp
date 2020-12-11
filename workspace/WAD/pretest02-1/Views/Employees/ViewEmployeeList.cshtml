@@ -1,0 +1,36 @@
+﻿@model IEnumerable<pretest02_1.Models.Employee>
+@{
+    ViewData["Title"] = "ViewEmployeeList";
+}
+
+<h1>ViewEmployeeList( @ViewBag.Info )</h1>
+
+<a asp-controller="Employees" asp-action="AddNewEmployee">Create Employee</a>
+<br />
+<form asp-controller="Employees" asp-action="ViewEmployeeList" class="d-flex">
+    <select name="keyword" asp-items="(IEnumerable<SelectListItem>)ViewBag.Employees" class="form-control col-sm-6">
+        <option value="">---Please chooses---</option>
+    </select>
+    <button type="submit" class="btn btn-outline-primary">Search</button>
+</form>
+<br />
+
+<table class="table">
+    <tr>
+        <th>EmployeeName</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpName</td>
+            <td>@item.EmpAddress</td>
+            <td>@item.EmpEmail</td>
+            <td>
+                <a asp-controller="Employees" asp-action="EditOrDeleteEmployee" asp-route-id="@item.EmpID">View Details</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,34 @@
+﻿@model Lab08.Models.City
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-controller="Cities" asp-action="Create" method="post">
+        <div class="form-group col-sm-12">
+            <label>CityName:</label>
+            <input type="text" asp-for="cityName" class="form-control col-sm-6" />
+            <span asp-validation-for="cityName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <label>CityPopulation:</label>
+            <input type="text" asp-for="cityPopulation" class="form-control col-sm-6" />
+            <span asp-validation-for="cityPopulation" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <label>CityArea:</label>
+            <input type="text" asp-for="cityArea" class="form-control col-sm-6" />
+            <span asp-validation-for="cityArea" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <label>CountryCode:</label>
+            <select asp-for="idCode" asp-items="(IEnumerable<SelectListItem>)ViewBag.Countries" class="form-control col-sm-6">
+                <option>Please choose</option>
+            </select>
+            <span asp-validation-for="idCode" class="text-danger"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <button type="submit" class="btn btn-outline-primary">Create</button>
+        </div>
+    </form>

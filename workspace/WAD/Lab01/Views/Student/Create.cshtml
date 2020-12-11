@@ -1,0 +1,43 @@
+﻿@model Lab01.Models.Student
+@{
+    ViewBag.Title = "Create";
+}
+<hr />
+<h2>Create new Student</h2>
+<div>
+    @using (Html.BeginForm("Create", "Student", FormMethod.Post))
+    {
+    <div>
+        <div>
+            @Html.LabelFor(model => model.StudentId)
+            @Html.EditorFor(model => model.StudentId)
+            @Html.ValidationMessageFor(model => model.StudentId)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.StudentName)
+            @Html.EditorFor(model => model.StudentName)
+            @Html.ValidationMessageFor(model => model.StudentName)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Address)
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.JoinDate)
+            @Html.EditorFor(model => model.JoinDate)
+            @Html.ValidationMessageFor(model => model.JoinDate)
+        </div>
+        <br /><br />
+        <div>
+            <input type="submit"  value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+    }
+</div>
+<div>
+    <h3 style="color:red">@ViewBag.Msg</h3>
+</div>

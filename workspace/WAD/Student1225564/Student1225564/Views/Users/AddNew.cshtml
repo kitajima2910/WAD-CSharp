@@ -1,0 +1,48 @@
+﻿@model Student1225564.Models.User
+@{
+    ViewData["Title"] = "AddNew";
+}
+
+<h1>Create new user</h1>
+
+<form asp-controller="Users" asp-action="AddNew" method="post">
+    <div class="form-group col-sm-12">
+        <label>Fullname</label>
+        <input asp-for="Fullname" class="form-control col-sm-6" />
+        <span asp-validation-for="Fullname" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Username</label>
+        <input asp-for="Username" class="form-control col-sm-6" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Password</label>
+        <input asp-for="Password" class="form-control col-sm-6" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Address</label>
+        <textarea asp-for="Address" class="form-control col-sm-6"></textarea>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control col-sm-6" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group col-sm-12">
+        <label>isAdmin</label> <br />
+        <input asp-for="isAdmin" class="form-control col-sm-1" style="margin-left: -25px"/>
+    </div>
+    <div class="form-group col-sm-12">
+        <button type="submit" class="btn btn-outline-primary">Create</button>
+    </div>
+</form>
+
+<br />
+&nbsp;&nbsp;&nbsp;<label class="text-danger">@ViewBag.Msg</label>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

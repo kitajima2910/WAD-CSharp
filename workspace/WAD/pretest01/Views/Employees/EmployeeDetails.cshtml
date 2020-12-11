@@ -1,0 +1,31 @@
+﻿@model pretest01.Models.Employee
+@{
+    ViewData["Title"] = "EmployeeDetails";
+}
+
+<h1>EmployeeDetails</h1>
+
+<table>
+    <tr>
+        <th>Ma nhan vien:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpID)</td>
+    </tr>
+    <tr>
+        <th>Tuoi:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpAge)</td>
+    </tr>
+    <tr>
+        <th>Ho ten:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpName)</td>
+    </tr>
+    <tr>
+        <th>Dia chi:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpAddress)</td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td style="text-indent: 16px;">@Html.DisplayFor(model => model.EmpEmail)</td>
+    </tr>
+</table>
+<br />
+<a asp-controller="Employees" asp-action="ViewEmployeeList">Xem danh sach nhan vien</a>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<pretest01_1.Models.Employee>
+@{
+    ViewData["Title"] = "ViewEmployeeList";
+}
+
+<h1>ViewEmployeeList</h1>
+
+<a asp-controller="Employees" asp-action="AddNewEmployee">Them nhan vien moi</a>
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>Ho Ten</th>
+        <th>Dia Chi</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpName</td>
+            <td>@item.EmpAddress</td>
+            <td>@item.EmpEmail</td>
+            <td>
+                <a asp-controller="Employees" asp-action="EmployeeDetail" asp-route-id="@item.EmpID">Chi tiet</a> |
+                <a asp-controller="Employees" asp-action="Delete" asp-route-id="@item.EmpID" onclick="return confirm('Are you sure?');">Xoa</a>
+            </td>
+        </tr>
+    }
+</table>
